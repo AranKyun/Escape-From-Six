@@ -86,6 +86,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Graph\README.md" />
+    <None Include="Map\MapClip\README.md" />
+    <None Include="Map\MapContainer\README.md" />
+    <None Include="Map\README.md" />
+    <None Include="OpenGL\DrawContainer\README.md" />
+    <None Include="OpenGL\MVP\README.md" />
+    <None Include="OpenGL\Shader\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
