@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{2CA2F784-3710-4E14-8F0E-2A2D2E84EF68}</ProjectGuid>
+    <ProjectGuid>{B09D8013-3BE8-4FAB-99A8-3B9AF3414959}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>EscapeFromSix</RootNamespace>
   </PropertyGroup>
@@ -78,20 +78,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="GameInstance.h" />
+    <ClInclude Include="MapContainer.h" />
+    <ClInclude Include="PlayerEntity.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="GameInstance.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="OpenGL\Window.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="OpenGL\Window.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Graph\README.md" />
-    <None Include="Map\MapClip\README.md" />
-    <None Include="Map\MapContainer\README.md" />
-    <None Include="Map\README.md" />
-    <None Include="OpenGL\DrawContainer\README.md" />
-    <None Include="OpenGL\MVP\README.md" />
-    <None Include="OpenGL\Shader\README.md" />
+    <ClCompile Include="MapContainer.cpp" />
+    <ClCompile Include="PlayerEntity.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
