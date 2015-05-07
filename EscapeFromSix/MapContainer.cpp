@@ -1,7 +1,7 @@
 #include "MapContainer.h"
 
 
-MapContainer::MapContainer()
+MapContainer::MapContainer(GameInstance& g) :gi(g)
 {
 }
 

@@ -1,7 +1,7 @@
 #include "Controller.h"
 
 
-Controller::Controller()
+Controller::Controller(GameInstance& g) :gi(g)
 {
 }
 

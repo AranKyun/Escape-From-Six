@@ -1,8 +1,9 @@
 #include "PlayerEntity.h"
 
 
-PlayerEntity::PlayerEntity()
+PlayerEntity::PlayerEntity(GameInstance& g) :gi(g)
 {
+	
 }
 
 
