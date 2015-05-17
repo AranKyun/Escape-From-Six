@@ -2,6 +2,8 @@
 
 #include "GameInstance.h"
 
+class GameInstance;
+
 class MapContainer
 {
 	GameInstance& gi;

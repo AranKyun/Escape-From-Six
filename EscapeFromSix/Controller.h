@@ -1,5 +1,8 @@
 #pragma once
 #include "GameInstance.h"
+
+class GameInstance;
+
 class Controller
 {
 
