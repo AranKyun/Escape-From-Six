@@ -1,4 +1,5 @@
 #include "Graph.h"
+#include "ShaderProgram.h"
 #include <vector>
 #include <fstream>
 #include <string>
@@ -10,13 +11,17 @@ vertexInfo* Graph::vertices = nullptr; //若没有加载过obj的话，该指针应该为空指针
 
 const char* Graph::objPath = ""; //obj模型路径由各个类指定
 
-Graph::Graph()
+
+
+Graph::Graph(GameInstance& gi_t, ShaderProgram& sp_t, int objectID_t) : gi(gi_t), sp(sp_t)
 {
+	objectID = objectID_t;
 
 	nFace = 0;
 	vertices = loadObj(objPath);
 	if (vertices == nullptr)
 		vertices = loadObj(objPath);
+	
 
 	glGenVertexArrays(1, &vaoID);
 	glBindVertexArray(vaoID);
@@ -38,6 +43,7 @@ Graph::Graph()
 
 Graph::~Graph()
 {
+	delete vertices;
 }
 
 
@@ -107,4 +113,32 @@ vertexInfo* Graph::loadObj(const char* objPath)
 
 	return ver;
 
+}
+
+
+void Graph::updateMVP()
+{
+	glm::mat4 model = glm::scale(glm::mat4(1.0f), glm::vec3(scale)); //放缩
+	model = glm::rotate(initRotateAngle, initRotateAxis) * model; //初始化旋转
+	if (rotateAnime == true)
+		model = glm::rotate(animeRotateAngle, animeRotateAxis) * model; //动画旋转
+
+	model = glm::translate(glm::vec3(locationX, locationY, locationZ)) * model; //向固定位置平移
+	if (translationAnime == true)
+		model = glm::translate(glm::vec3(translationX, translationY, translationZ)) * model; //动画平移
+
+	MVP = gi.getPerspectiveMat() * gi.getPlayerEntity().getViewMat() * model;
+}
+
+
+void Graph::draw()
+{
+	glUseProgram(sp.getProgramID());
+	glBindVertexArray(vaoID);
+	glUniformMatrix4fv(sp.getMvpID(), 1, GL_FALSE, &(MVP[0][0]));
+	glDrawArrays(GL_TRIANGLES, 0, nFace * 3);
+	glBindVertexArray(0);
+	glUseProgram(0);
+
+	
 }

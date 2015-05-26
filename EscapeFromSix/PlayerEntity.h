@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameInstance.h"
+#include <glm\glm.hpp>
 
 class GameInstance;
 
@@ -11,6 +12,8 @@ class PlayerEntity
 	float vertAngle; //视角竖直角
 
 	bool jumping; //正在跳跃与否
+
+	glm::mat4 viewMat; //观察矩阵
 
 	GameInstance& gi;
 
@@ -40,5 +43,7 @@ public:
 	float getHoriAngle(); //获取水平视角
 	float getVertAngle(); //获取竖直视角
 
+	void updateViewMat(); //重计算观察矩阵
+	glm::mat4& getViewMat(); //获取观察矩阵
 };
 

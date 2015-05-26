@@ -1,40 +1,69 @@
+#include <iostream>
+#include "glew.h"
+
 #include "GameInstance.h"
-#include <glfw3.h>
 
-
-GameInstance::GameInstance() :ct(Controller(*this)), pe(PlayerEntity(*this)), mc(MapContainer(*this))
+GameInstance::GameInstance() :ct(new Controller(*this)), pe(new PlayerEntity(*this)), mc(new MapContainer(*this))
 {
-	currentTime = glfwGetTime();
+	initialize();
 }
 
 
 GameInstance::~GameInstance()
 {
+	delete ct, pe, mc;
 }
 
 MapContainer& GameInstance::getMapContainer()
 {
-	return mc;
+	return *mc;
 }
 
 PlayerEntity& GameInstance::getPlayerEntity()
 {
-	return pe;
+	return *pe;
 }
 
 Controller& GameInstance::getController()
 {
-	return ct;
+	return *ct;
 }
 
 void GameInstance::updateTime()
 {
-	float temp = currentTime;
+	double temp = currentTime;
 	currentTime = glfwGetTime();
 	deltaTime = currentTime - temp;
 }
 
-float GameInstance::getDeltaTime()
+double GameInstance::getDeltaTime()
 {
 	return deltaTime;
+}
+
+
+void GameInstance::initialize()
+{
+
+	if (!glfwInit()){
+		fprintf(stderr, "GLFW initialization failed!\n");
+		exit(EXIT_FAILURE);
+	}
+
+	window = glfwCreateWindow(width, height, title, NULL, NULL);
+	glfwMakeContextCurrent(window);
+
+	currentTime = glfwGetTime();
+
+	if (glewInit() != GLEW_OK){
+		fprintf(stderr, "GLEW initialization failed!\n");
+		exit(EXIT_FAILURE);
+	}
+
+}
+
+
+glm::mat4& GameInstance::getPerspectiveMat()
+{
+	return perspectiveMat;
 }
