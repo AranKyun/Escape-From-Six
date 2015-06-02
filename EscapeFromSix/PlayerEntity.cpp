@@ -15,3 +15,9 @@ glm::mat4& PlayerEntity::getViewMat()
 {
 	return viewMat;
 }
+
+
+void PlayerEntity::dropItem()
+{
+     //test code
+}
