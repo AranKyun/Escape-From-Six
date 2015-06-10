@@ -13,8 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="源文件\shader">
+    <Filter Include="资源文件\shader">
       <UniqueIdentifier>{6a359288-edde-466f-a76c-ed8c88b43815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\model">
+      <UniqueIdentifier>{5f9c53f2-4b29-469b-bede-be8a339c3f9f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +40,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="DrawContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Room.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VBO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VBOContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Door.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -65,13 +80,30 @@
     <ClCompile Include="DrawContainer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Room.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VBO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VBOContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Door.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\fragment_shader_1.sha">
-      <Filter>源文件\shader</Filter>
+      <Filter>资源文件</Filter>
     </None>
     <None Include="shader\vertex_shader_1.sha">
-      <Filter>源文件\shader</Filter>
+      <Filter>资源文件</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="model\room.obj">
+      <Filter>资源文件\model</Filter>
+    </Object>
   </ItemGroup>
 </Project>

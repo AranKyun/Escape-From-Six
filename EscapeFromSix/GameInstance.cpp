@@ -3,7 +3,7 @@
 
 #include "GameInstance.h"
 
-GameInstance::GameInstance() :ct(new Controller(*this)), pe(new PlayerEntity(*this)), mc(new MapContainer(*this))
+GameInstance::GameInstance() :ct(new Controller(*this)), pe(new PlayerEntity(*this)), mc(new MapContainer(*this)), vc(new VBOContainer())
 {
 	initialize();
 }
@@ -27,6 +27,11 @@ PlayerEntity& GameInstance::getPlayerEntity()
 Controller& GameInstance::getController()
 {
 	return *ct;
+}
+
+VBOContainer& GameInstance::getVBOContainer()
+{
+	return *vc;
 }
 
 void GameInstance::updateTime()
@@ -66,4 +71,10 @@ void GameInstance::initialize()
 glm::mat4& GameInstance::getPerspectiveMat()
 {
 	return perspectiveMat;
+}
+
+
+GLFWwindow* GameInstance::getWindow()
+{
+	return window;
 }

@@ -5,6 +5,8 @@
 #include <glm\gtx\transform.hpp>
 
 #include "GameInstance.h"
+
+#include "VBOContainer.h"
 #include "ShaderProgram.h"
 
 struct vertexInfo{
@@ -15,19 +17,18 @@ struct vertexInfo{
 
 class Graph
 {
+protected:
 	GameInstance& gi; 
 	ShaderProgram& sp;
 
 	GLuint vaoID;
+	VBO_TYPE vboType;
 
 	int objectID;
 
 	GLint nFace;
-	static vertexInfo* vertices;
 	
 	glm::mat4 MVP;
-
-	static const char* objPath;
 
 	float scale;
 	float initRotateAngle;
@@ -49,10 +50,15 @@ public:
 	Graph(GameInstance&, ShaderProgram&, int);
 	~Graph();
 
+	void init();
+
 	vertexInfo* loadObj(const char*); //加载obj模型 参数-地址
+
 	void draw(); //绘制模型
 
 	void updateMVP(); //设置mvp
+
+	void setLocationXYZ(float, float, float);
 
 };
 

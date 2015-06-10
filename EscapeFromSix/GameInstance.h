@@ -3,6 +3,7 @@
 #include "MapContainer.h"
 #include "PlayerEntity.h"
 #include "Controller.h"
+#include "VBOContainer.h"
 #include "glfw3.h"
 
 #include <glm\glm.hpp>
@@ -16,6 +17,7 @@ class GameInstance
 	MapContainer* mc;
 	PlayerEntity* pe;
 	Controller* ct;
+	VBOContainer* vc;
 
 	double currentTime;
 	double deltaTime;
@@ -35,11 +37,14 @@ public:
 	MapContainer& getMapContainer();
 	PlayerEntity& getPlayerEntity();
 	Controller& getController();
+	VBOContainer& getVBOContainer();
 
 	void updateTime();
 	double getDeltaTime();
 
 	glm::mat4& getPerspectiveMat();
+
+	GLFWwindow* getWindow();
 
 	void initialize();
 };

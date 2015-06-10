@@ -82,26 +82,37 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="Door.h" />
     <ClInclude Include="DrawContainer.h" />
     <ClInclude Include="GameInstance.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="MapContainer.h" />
     <ClInclude Include="PlayerEntity.h" />
+    <ClInclude Include="Room.h" />
     <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="VBO.h" />
+    <ClInclude Include="VBOContainer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="Door.cpp" />
     <ClCompile Include="DrawContainer.cpp" />
     <ClCompile Include="GameInstance.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapContainer.cpp" />
     <ClCompile Include="PlayerEntity.cpp" />
+    <ClCompile Include="Room.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="VBO.cpp" />
+    <ClCompile Include="VBOContainer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\fragment_shader_1.sha" />
     <None Include="shader\vertex_shader_1.sha" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="model\room.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

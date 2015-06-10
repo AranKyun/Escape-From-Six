@@ -3,6 +3,7 @@
 
 MapContainer::MapContainer(GameInstance& g) :gi(g)
 {
+	
 }
 
 

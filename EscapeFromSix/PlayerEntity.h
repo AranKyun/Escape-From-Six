@@ -7,6 +7,11 @@ class GameInstance;
 
 class PlayerEntity
 {
+	float playerX;
+	float playerY;
+	float playerZ;
+
+	int heldItemID;
 
 	float horiAngle; //视角水平角
 	float vertAngle; //视角竖直角
@@ -23,9 +28,9 @@ public:
 	PlayerEntity(GameInstance&);
 	~PlayerEntity();
 
-	void jump(); //跳跃过程中计算Y
+	void jump(); //跳跃过程中计算Y，暂时不做
 
-	void dropItem(); //丢弃物品
+	void dropItem(); //丢弃物品，通知mc丢弃坐标
 	int getItemHeld(); //获取所持物品ID
 	void pickUpItem(); //拾起物品
 
