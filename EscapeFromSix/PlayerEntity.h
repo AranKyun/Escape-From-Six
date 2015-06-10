@@ -7,13 +7,20 @@ class GameInstance;
 
 class PlayerEntity
 {
+      float playerY; 
+      
+    int heldItemID;
+	float horiAngle; //锟接斤拷水平锟斤拷
+	float vertAngle; //锟接斤拷锟斤拷直锟斤拷
 
-	float horiAngle; //视角水平角
-	float vertAngle; //视角竖直角
+	bool jumping; //锟斤拷锟斤拷锟斤拷跃锟斤拷锟斤拷
+	double jumpTime;
+	
+	int y;
+	const gravity = 9.8;
+    const speed = 3.1;  
 
-	bool jumping; //正在跳跃与否
-
-	glm::mat4 viewMat; //观察矩阵
+	glm::mat4 viewMat; //锟桔诧拷锟斤拷锟斤拷
 
 	GameInstance& gi;
 
@@ -22,28 +29,29 @@ public:
 
 	PlayerEntity(GameInstance&);
 	~PlayerEntity();
+    
+	void jump(); //锟斤拷跃锟斤拷锟斤拷锟叫硷拷锟斤拷Y
+    float distanceCaculate();
+	void dropItem(); //锟斤拷锟斤拷锟斤拷品
+	int getItemHeld(); //锟斤拷取锟斤拷锟斤拷锟斤拷品ID
+	void pickUpItem(); //拾锟斤拷锟斤拷品
 
-	void jump(); //跳跃过程中计算Y
+	void useItemInteract(); //锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤交锟斤拷锟侥凤拷式使锟斤拷锟斤拷品
+	void useItemSelf(); //使锟斤拷锟斤拷品锟斤拷锟斤拷锟斤拷
 
-	void dropItem(); //丢弃物品
-	int getItemHeld(); //获取所持物品ID
-	void pickUpItem(); //拾起物品
+	bool isMovingLocked(); //锟斤拷锟斤拷锟叫讹拷锟角凤拷锟斤拷锟斤拷
+	void setMovingLocked(bool); //锟斤拷锟斤拷锟斤拷锟斤拷锟叫讹拷
 
-	void useItemInteract(); //以与其他事物交互的方式使用物品
-	void useItemSelf(); //使用物品自身功能
+	bool isViewLocked(); //锟斤拷锟斤拷锟斤拷野锟角凤拷锟斤拷锟斤拷
+	void setViewLocked(bool); //锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷野
 
-	bool isMovingLocked(); //人物行动是否锁定
-	void setMovingLocked(bool); //锁定人物行动
-
-	bool isViewLocked(); //人物视野是否锁定
-	void setViewLocked(bool); //锁定人物视野
-
-	void setView(float, float); //设置视角
-	void addView(float, float); //自增视角
-	float getHoriAngle(); //获取水平视角
-	float getVertAngle(); //获取竖直视角
-
-	void updateViewMat(); //重计算观察矩阵
-	glm::mat4& getViewMat(); //获取观察矩阵
+	void setView(float, float); //锟斤拷锟斤拷锟接斤拷
+	void addView(float, float); //锟斤拷锟斤拷锟接斤拷
+	float getHoriAngle(); //锟斤拷取水平锟接斤拷
+	float getVertAngle(); //锟斤拷取锟斤拷直锟接斤拷
+   
+	void updateViewMat(); //锟截硷拷锟斤拷锟桔诧拷锟斤拷锟斤拷
+	glm::mat4& getViewMat(); //锟斤拷取锟桔诧拷锟斤拷锟斤拷
+    
 };
 
