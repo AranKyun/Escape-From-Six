@@ -3,6 +3,7 @@
 
 Controller::Controller(GameInstance& g) :gi(g)
 {
+     
 }
 
 
